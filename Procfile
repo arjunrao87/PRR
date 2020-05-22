@@ -1,1 +1,1 @@
-web: gunicorn src/prr/main:app
+web: gunicorn app:app
