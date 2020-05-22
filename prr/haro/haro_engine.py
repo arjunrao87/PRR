@@ -28,6 +28,6 @@ def convert_haro_email_to_records():
     stories = get_stories_from_reporters(categories)
 
     # Write to airtable
-    tpa.write_to_airtable(airtable, stories)
+    write_to_airtable(airtable, stories)
     logger.info("Completed inserting records into Airtable")
     return "Finished parsing email"
