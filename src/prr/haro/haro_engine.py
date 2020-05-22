@@ -3,9 +3,9 @@ import sys
 import mailslurp_client
 import os 
 
-from utils.tpa import get_email_content_from_mailslurp, write_to_airtable
-from utils.response_generator import parse_email_for_categories, get_stories_from_reporters
 from airtable import Airtable
+from prr.haro.utils.tpa import get_email_content_from_mailslurp, write_to_airtable
+from prr.haro.utils.response_generator import parse_email_for_categories, get_stories_from_reporters
 
 # Setup logging
 logger = logging.getLogger(__name__)
@@ -30,3 +30,4 @@ def convert_haro_email_to_records():
     # Write to airtable
     tpa.write_to_airtable(airtable, stories)
     logger.info("Completed inserting records into Airtable")
+    return "Finished parsing email"
