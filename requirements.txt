@@ -1,0 +1,13 @@
+airtable-python-wrapper==0.13.0
+beautifulsoup4==4.9.1
+bs4==0.0.1
+certifi==2020.4.5.1
+chardet==3.0.4
+idna==2.9
+lxml==4.5.1
+mailslurp-client==7.0.10
+python-dateutil==2.8.1
+requests==2.23.0
+six==1.15.0
+soupsieve==2.0.1
+urllib3==1.25.9
