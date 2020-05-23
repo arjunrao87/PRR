@@ -18,9 +18,10 @@ def get_email_content_from_mailslurp(email_id, configuration):
         api_response = None
         try:
             api_response = api_instance.get_email_html(email_id, decode=decode)
+            return api_response
         except ApiException as e:
             logging.error("Exception when calling EmailControllerApi->get_email_html: %s\n" % e)
-        return api_response
+            raise ValueError("Unable to retrieve email content")
 
 def write_to_airtable(airtable, records):
     for record in records:

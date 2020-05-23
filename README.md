@@ -5,7 +5,11 @@
 
 ## Built with 
 - Mailslurp 
-- Heroku 
-- Python
-- Airtable 
-- Vue
+- ------------------------
+- |        Heroku         |
+- |        Gunicorn       |
+- |         Flask         |
+- |        Python         |
+- |       Airtable        |
+- -------------------------
+- VueJS
