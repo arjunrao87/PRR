@@ -9,13 +9,13 @@ app = Flask(__name__)
 def home():
     return 'PRR server says Hello!'
 
-@app.route('/parse-haro-email')
+@app.route('/parse-haro-email', methods = ['POST'])
 def parse_haro_email():
-    args = request.args
+    email_id= request.form.get('email_id')
+    secret = request.form.get('secret')
     try:
-        if len(args) > 0 and 'secret' in args and args['secret'] == os.getenv("PRR_SECRET"):
-            if 'email_id' in args:
-                return haro.convert_haro_email_to_records(args['email_id'])
+        if secret == os.getenv("PRR_SECRET"):
+            return haro.convert_haro_email_to_records(email_id)
     except Exception as e:
         return "Error encountered: " + str(e)
     return "Open sesame"
