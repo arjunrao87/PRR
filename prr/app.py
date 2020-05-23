@@ -11,13 +11,7 @@ def home():
 
 @app.route('/parse-haro-email', methods = ['POST'])
 def parse_haro_email():
-    email_id= request.form.get('emailId')
-    properties= request.form.get('properties')
-    email_id_1 = request.form['emailId']
-    print("Email ID 1- " + email_id_1)
-    print("Email ID - " + email_id)
-
-    print("properties - " + properties)
+    email_id= request.json['emailId']
     secret = request.args['secret'] if 'secret' in request.args else None
     try:
         if secret == os.getenv("PRR_SECRET"):
