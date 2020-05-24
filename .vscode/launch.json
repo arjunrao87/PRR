@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Flask",
+            "name": "prr-server",
             "type": "python",
             "request": "launch",
             "module": "flask",
@@ -20,6 +20,17 @@
                 "--no-reload"
             ],
             "jinja": true
-        }
+        },
+        {
+            "name": "prr-haro-vueapp",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/prr/vueapp",
+            "breakOnLoad": true,
+            "sourceMapPathOverrides": {
+              "webpack:///src/*": "${webRoot}/*"
+            }
+        },
     ]
 }

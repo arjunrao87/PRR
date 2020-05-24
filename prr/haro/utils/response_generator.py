@@ -49,12 +49,10 @@ def get_stories_from_reporters(categories):
                         if "Media Outlet" in each_block.string:
                             media_outlet = each_block.string.split("Media Outlet: ")[1]
                             story["media_outlet"] = media_outlet   
-                        if "Deadline" in each_block.string:
+                        if "Deadline: " in each_block.string:
                             deadline = each_block.string.split("Deadline: ")[1].split("-")
-                            deadline_date = deadline[1]
-                            deadline_time = deadline[0]
-                            story["deadline_date"] = deadline_date
-                            story["deadline_time"] = deadline_time
+                            story["deadline_date"] = deadline[1]
+                            story["deadline_time"] = deadline[0]
                         if "12051 Indian Creek Ct., Beltsville, MD 20705, USA" in each_block.string:
                             break
                     if isinstance(each_block, bs4.element.Tag):
@@ -68,8 +66,8 @@ def get_stories_from_reporters(categories):
                             if "Requirements" in each_block.text:
                                 story["requirements"] = each_block.text.split("Requirements: ")[1]
                         if each_block.name == 'a':
-                            if "target" in each_block.attrs:
-                                story["email"] = each_block.attrs['href']
+                            if "href" in each_block.attrs:
+                                story["email"] = each_block.attrs['href'].split("mailto:")[1]
         story["category"] = final_category
         if story is not None:
             stories.append(story)

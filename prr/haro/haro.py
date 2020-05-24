@@ -12,9 +12,7 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 # Setup airtable
-PRR_BASE_ID="app26blbVX3rcmY5p"
-HARO_TABLE="leads"
-airtable = Airtable(PRR_BASE_ID, HARO_TABLE)
+airtable = Airtable(os.getenv('AIRTABLE_PRR_BASE'), os.getenv('AIRTABLE_HARO'))
 
 # Setup email client
 configuration = mailslurp_client.Configuration()
